@@ -87,14 +87,20 @@
 
         socket.on('chat message', function(msg) { // escucha el socket para que en algún momento diga " chat message"
             var image = document.createElement('img');
-            var divContaner = document.createElement('div');
+            var divContainer = document.createElement('div');
             var text = document.createElement('p');
+            text.style.display = 'flex';
+            text.style.width = '100%';
             var item = document.createElement('li'); // => Coge la información don tag "chat message" metiendola en el <ul>
             image.src = 'https://s03.s3c.es/imag/_v0/770x420/d/9/e/Un-oso-pardo-con-la-mano-levantada-iStock.jpg';
+            image.style.width = '20%';
+            image.style.height = '20%';
+            image.style.margin = '10px';
             text.textContent = msg;
-            divContaner.appendChild(image);
-            divContaner.appendChild(text);
-            item.appendChild(divContaner);
+            divContainer.style.display = 'flex';
+            divContainer.appendChild(image);
+            divContainer.appendChild(text);
+            item.appendChild(divContainer);
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
         });
